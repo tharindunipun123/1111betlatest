@@ -1,0 +1,212 @@
+
+/* CricketBetting.module.css */
+
+:root {
+  --primary-color: #1e3a8a;
+  --secondary-color: #3b82f6;
+  --accent-color: #f59e0b;
+  --background-color: #f3f4f6;
+  --text-color: #1f2937;
+  --card-background: #ffffff;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.cricketBetting {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: white;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.walletBalance {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.matchList, .bettingForm, .betHistory {
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.matchItem {
+  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.matchItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.matchItem.selected {
+  border-color: var(--secondary-color);
+  background-color: #e6f2ff;
+}
+
+.matchItem h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+}
+
+.matchStatus {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.matchStatus[data-status="upcoming"] {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.matchStatus[data-status="live"] {
+  background-color: var(--accent-color);
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+.matchStatus[data-status="completed"] {
+  background-color: var(--success-color);
+  color: white;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.matchResult {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.select, .input, .button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #d1d5db;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
+.select {
+  background-color: white;
+  color: var(--text-color);
+}
+
+.button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.betItem {
+  background-color: #f9fafb;
+  border-radius: var(--border-radius);
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.betItem:hover {
+  transform: translateX(5px);
+}
+
+.betItem p {
+  margin: 5px 0;
+}
+
+.betItem p:first-child {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+.error {
+  color: var(--error-color);
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .walletBalance {
+    margin-top: 10px;
+  }
+}
